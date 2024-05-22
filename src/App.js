@@ -19,7 +19,7 @@ const App = () => {
     <AppProvider>
       <div className="container">
         <h1 className="mt-3">Company's Budget Allocation</h1>
-        <div className="row mt-3">
+        <div className="row mt-3 d-flex align align-items-center justify-content-between">
           <div className="col-sm">
             <Budget />
           </div>

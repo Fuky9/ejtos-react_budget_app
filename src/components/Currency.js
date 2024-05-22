@@ -1,31 +1,47 @@
 import { useContext } from "react";
+import Dropdown from "react-bootstrap/Dropdown";
 import { AppContext } from "../context/AppContext";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Currency.css";
 
 const Currency = () => {
-  const { dispatch } = useContext(AppContext);
+  const { dispatch, currency } = useContext(AppContext);
 
-  const handleChange = (event) => {
-    const value = event.target.value;
+  const handleSelect = (eventKey) => {
     dispatch({
       type: "CHG_CURRENCY",
-      payload: value,
+      payload: eventKey,
     });
   };
+
   return (
-    <select id="currency-choice" onChange={handleChange}>
-      <option defaultValue value="£" name="£">
-        £ Pound
-      </option>
-      <option value="$" name="$">
-        $ Dollar
-      </option>
-      <option value="€" name="€">
-        € Euro
-      </option>
-      <option value="₹" name="₹">
-        ₹ Ruppee
-      </option>
-    </select>
+    <div className="alert alert-link d-flex justify-content-start w-100 wrapper">
+      <Dropdown onSelect={handleSelect}>
+        <Dropdown.Toggle
+          size="lg"
+          className="custom-dropdown-toggle"
+          variant="success"
+          id="dropdown-basic"
+        >
+          Select Currency: {currency}
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu className="custom-dropdown-menu">
+          <Dropdown.Item className="custom-dropdown-item" eventKey="£">
+            £ Pound
+          </Dropdown.Item>
+          <Dropdown.Item className="custom-dropdown-item" eventKey="$">
+            $ Dollar
+          </Dropdown.Item>
+          <Dropdown.Item className="custom-dropdown-item" eventKey="€">
+            € Euro
+          </Dropdown.Item>
+          <Dropdown.Item className="custom-dropdown-item" eventKey="₹">
+            ₹ Rupee
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
   );
 };
 

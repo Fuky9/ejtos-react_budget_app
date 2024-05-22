@@ -1,0 +1,21 @@
+.custom-dropdown-toggle {
+    background-color: rgb(55, 70, 236);
+    color: white;
+}
+.custom-dropdown-toggle:hover,
+.custom-dropdown-toggle:focus {
+    background-color: rgb(1, 1, 81);
+    color:aliceblue;
+}
+.custom-dropdown-menu {
+    background-color:rgb(206, 210, 255);
+    color: black;
+}
+
+.custom-dropdown-item {
+    font-weight: bold;
+}
+
+.wrapper {
+    padding-left: 0;
+}
